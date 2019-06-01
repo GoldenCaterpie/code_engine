@@ -196,28 +196,6 @@ void sub_82E1810(u32 a1)
         clearflag(flag);
 }
 
-u16 lowest_evo(u16 species)
-{
-    u16 count = 0;
-    for (u16 lower_poke = 1; lower_poke < ALL_POKES; lower_poke++)
-    {
-        if (count > 6)
-            break;
-        const struct evolution_sub* evos = (*evo_table)[lower_poke];
-        for (u8 j = 0; j < 5; j++)
-        {
-            const struct evolution_sub* evo = &evos[j];
-            if (evo->poke == species && evo->method < 0xFA)
-            {
-                species = lower_poke;
-                lower_poke = 1;
-                count++;
-                break;
-            }
-        }
-    }
-    return species;
-}
 
 /*
 u8 __attribute__((long_call)) is_move_a_HM(u16 move);

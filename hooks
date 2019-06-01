@@ -77,3 +77,11 @@ check_z_seted 08057C1E 0
 sub_82E1810 82E1810 1
 #check_attack_new 809B3DC 1
 #bbo_new1 0803B17C 0
+#扩充PC相关hook
+sav_to_flash_section 0x01527A0 3
+flash_to_sav 0x0152E10 3
+sav_to_flash_copy 0x0152B00 3
+get_box_name 0x0D20D0 3
+get_box_bg 0x0D20F8 3
+set_box_bg 0x0D2120 3
+ov_showcontest 0x09B794 3

@@ -191,16 +191,17 @@ void update_transform_sprite_pal(u8 bank, u16 pal_arg1)
 }
 
 
-#define BUILD_PC false
+#define BUILD_PC true
 
-#if BUILD_PC==true
+#if BUILD_PC == true
+
 u8 castform_type(u8 bank)
 {
     u8 type = battle_participants[bank].type1;
-    static u8 castform_type_array[] = {TYPE_NORMAL,TYPE_FIRE, TYPE_WATER, TYPE_ICE};
+    static u8 castform_type_array[] = {TYPE_NORMAL, TYPE_FIRE, TYPE_WATER, TYPE_ICE};
     u8 i = 0;
-    for (; i < 4; i++)
-        if (castform_type_array[i] == type)
+    while (i < 4)
+        if (castform_type_array[i++] == type)
             break;
     return i;
 }
@@ -257,6 +258,7 @@ void b_load_sprite(struct pokemon* poke, u8 bank, const struct sprite_poke (* sp
         (*battle_graphics.graphics_data->species_info)[bank].invisible = 1;
     }
 }
+
 #else
 void b_load_sprite(struct pokemon* poke, u8 bank, const struct sprite_poke (*sprites)[],enum poke_sprite sprite)
 {
