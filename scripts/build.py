@@ -47,8 +47,8 @@ def run_command(cmd):
         sys.exit(1)
 
 def file_modifiled(in_file,out_file):
-    #if os.path.exists(out_file):
-    #    return os.path.getmtime(in_file) > os.path.getmtime(out_file)
+    if os.path.exists(out_file):
+        return os.path.getmtime(in_file) > os.path.getmtime(out_file)
     return True
 
 def make_output_file(filename):
@@ -99,7 +99,7 @@ def run_glob(globstr, fn):
 
 
 def main():
-    globs = [('**/*.s', process_assembly),('**/*.cpp',process_cpp), ('**/*.c', process_c)]
+    globs = [('**/*.s', process_assembly), ('**/*.cpp',process_cpp), ('**/*.c', process_c)]
     # Create output directory
     try:
         os.makedirs(BUILD)
