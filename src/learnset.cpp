@@ -4,6 +4,7 @@
 
 struct learnset_iterator
 {
+public:
     struct pokemon* poke;
     u8 poke_lvl;
     u8 learnset_lvl;
@@ -123,10 +124,10 @@ extern "C" bool find_move_in_table2(u16 move, u16* table_ptr, u8 table_length)
 
 #define MAX_RELEARNABLE 24
 
-u8 relearnable_moves(struct pokemon* poke, u16 moves_table[])
+u8 relearnable_moves(struct pokemon* poke, u16 moves_table[]=0)
 {
-    u8 number_of_moves = 0;
     struct learnset_iterator itr = learnset_iterator(poke);
+    u8 number_of_moves = 0;
     while (itr.has_next_and_store_current() && number_of_moves < MAX_RELEARNABLE)
     {
         if (itr.learnset_lvl < itr.poke_lvl)
@@ -156,7 +157,7 @@ extern "C" u8 get_relearnable_moves(struct pokemon* poke, u16 moves_table[])
 
 extern "C" u8 get_number_of_relearnable_moves(struct pokemon* poke)
 {
-    return relearnable_moves(poke, 0);
+    return relearnable_moves(poke);
 }
 
 extern "C" u8 learnsanydamagingmove(u16 poke)

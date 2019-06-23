@@ -171,7 +171,7 @@ void set_type(u8 bank, u8 type)
 
 bool percent_chance(u8 percent)
 {
-    return  random_value(100) + 1 <= percent;
+    return  random_value(100) < percent;
 }
 
 s8 get_move_position(u8 bank, u16 move)
