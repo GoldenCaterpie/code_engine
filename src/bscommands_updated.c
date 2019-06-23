@@ -11,7 +11,6 @@ u16 apply_type_effectiveness(u16 chained_effect, u8 move_type, u8 target_bank, u
 u8 cant_poison(u8 atk_bank, u8 def_bank, u8 self_inflicted);
 u8 get_attacking_move_type();
 u8 item_battle_effects(u8 switchid, u8 bank, u8 move_turn);
-u8 percent_chance(u8 percent);
 void damage_calc(u16 move, u8 move_type, u8 atk_bank, u8 def_bank, u16 chained_effectiveness);
 u8 find_move_in_table(u16 move, const u16* table_ptr);
 u8 protect_affects(u16 move, u8 set);
