@@ -9,7 +9,7 @@ u8 has_ability_effect(u8 bank, u8 mold_breaker, u8 gastro);
 bool check_ability(u8 bank, u8 ability);
 void bs_push_current(void* now);
 bool not_impostered(u8 bank); //JeremyZ
-u32 random_value(u32 limit);
+
 
 bool affected_by_substitute(u8 substitute_bank)
 {

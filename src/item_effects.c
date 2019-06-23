@@ -10,7 +10,6 @@ bool check_ability(u8 bank, u8 ability);
 u8 get_item_effect(u8 bank, bool check_negating_effects);
 bool has_ability_effect(u8 bank, u8 mold_breaker);
 bool is_bank_present(u32 bank);
-bool percent_chance(u8 percent);
 bool does_move_make_contact(u16 move, u8 atk_bank);
 bool is_of_type(u8 bank, u8 type);
 void copy_status_condition_text(u8 bank, u8 confusion);
@@ -23,7 +22,7 @@ u8 get_bank_side(u8 bank);
 void bs_push(void* to_return, void* now);
 void bs_push_current(void* now);
 void call_bc_move_exec(void* bs_ptr);
-u32 random_value(u32 limit);
+
 
 enum COMMON_ITEM_EFFECT
 {

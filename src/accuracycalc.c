@@ -15,7 +15,6 @@ bool does_move_make_contact(u16 move, u8 atk_bank);
 u8 find_move_in_table(u16 move, const u16* table_ptr);
 u8 check_ability(u8 bank, u8 ability);
 u8 get_bank_side(u8 bank);
-u32 random_value(u32 limit);
 u8 check_field_for_ability(enum poke_abilities ability, u8 side_to_ignore, u8 mold);
 
 u8 protect_affects(u16 move, u8 set)

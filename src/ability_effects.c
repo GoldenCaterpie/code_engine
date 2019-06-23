@@ -6,7 +6,6 @@ bool is_bank_present(u32 bank);
 bool is_of_type(u8 bank, u8 type);
 void set_type(u8 bank, u8 type);
 s8 get_move_position(u8 bank, u16 move);
-bool percent_chance(u8 percent);
 void copy_status_condition_text(u8 bank, u8 confusion);
 void record_usage_of_move(u8 bank, u16 move);
 bool try_stealing_bank_item(u8 thief_bank, u8 victim_bank);
@@ -34,7 +33,7 @@ void bs_push(void* to_return, void* now);
 void bs_push_current(void* now);
 void bs_execute(void* bs);
 u8 item_force_switching(u8 bank, void* BS_ptr);
-u32 random_value(u32 limit);
+
 u16 get_battle_item_extra_param(u32 bank); //JeremyZ
 u8 check_field_for_ability(enum poke_abilities ability, u8 side_to_ignore, u8 mold);
 u8 can_lose_item(u8 bank, u8 stickyhold_check, u8 sticky_message);

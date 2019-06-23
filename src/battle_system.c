@@ -35,7 +35,7 @@ void clear_twoturn(u8 bank);
 u8  get_trainer_opponent_A_class();
 bool not_impostered(u8 bank);
 struct pokemon* get_bank_poke_ptr(u8 bank); //JeremyZ
-u32 random_value(u32 limit);
+
 u8 get_bank_side(u8 bank);
 u8 check_field_for_ability(enum poke_abilities ability, u8 side_to_ignore, u8 mold);
 u8 get_battle_bank(u8 to_get)
@@ -169,10 +169,6 @@ void set_type(u8 bank, u8 type)
     new_battlestruct->bank_affecting[bank].type3 = type;
 }
 
-bool percent_chance(u8 percent)
-{
-    return  random_value(100) < percent;
-}
 
 s8 get_move_position(u8 bank, u16 move)
 {

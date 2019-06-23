@@ -48,7 +48,6 @@ void bs_push_current(void* now);
 //void revert_mega_to_normalform(u8 teamID, u8 opponent_side);
 void revert_mega_to_normalform_new(u8 opponent_side);
 bool not_impostered(u8 bank);
-u32 random_value(u32 limit);
 u8 z_protect_affects(u16 move); //JeremyZ
 void check_weather_trio(void);
 

@@ -187,7 +187,7 @@ u8 tai_get_move_effectiveness(void)
     else
         return 3;
 }
-u32 random_value(u32 limit);
+
 u32 ai_calculate_damage(u8 atk_bank, u8 def_bank, u16 move)
 {
     u8 saved_target_bank = bank_target;

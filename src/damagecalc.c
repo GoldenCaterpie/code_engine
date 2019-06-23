@@ -1439,7 +1439,6 @@ u16 calc_reflect_modifier(u8 atk_bank, u8 def_bank, u16 final_modifier) {
     }
     return final_modifier;
 }
-u32 random_value(u32 limit);
 void damage_calc(u16 move, u8 move_type, u8 atk_bank, u8 def_bank, u16 chained_effectiveness) {
     damage_loc = 0;
     if (chained_effectiveness == 0) { return; } // avoid wastage of time in case of non effective moves

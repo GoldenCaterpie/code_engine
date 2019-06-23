@@ -2,7 +2,6 @@
 #include "static_references.h"
 
 bool is_bank_present(u32 bank);
-bool percent_chance(u8 percent);
 struct pokemon* get_bank_poke_ptr(u8 bank);
 bool is_poke_valid(const struct pokemon* poke);
 void revert_form_change(bool mega_revert, u8 teamID, u8 side, const struct pokemon* poke);

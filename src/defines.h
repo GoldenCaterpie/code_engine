@@ -380,4 +380,6 @@ const struct evolution_sub* GET_EVO_TABLE(u16 species);
 #define stat_get_bits_arg(self_inflicted, print_ability, change_stats) (0 | (self_inflicted ? STAT_SELFINFLICTED:0)|(print_ability ? STAT_PRINTABILITY:0)|(change_stats ? STAT_CHANGE_VALUES:0))
 u8 change_stats(u8 bank, u8 bits, void* bs_unable);
 
+
+
 #endif /* DEFINES_H */
