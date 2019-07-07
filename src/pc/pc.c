@@ -182,7 +182,7 @@ bool flash_to_new3()
     return 1;
 }
 
-void wait_flash_to_new3()//此操作极易引发BUG
+void wait_flash_to_new3()
 {
     over_world_script.mode = 2;
     over_world_script.waiting_routine = flash_to_new3;

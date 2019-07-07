@@ -2,7 +2,6 @@
 #include "static_references.h"
 
 u16 get_speed(u8 bank);
-u8 percent_chance(u8 percent);
 u8 hp_condition(u8 bank, u8 percent);
 u8 get_item_effect(u8 bank, u8 check_negating_effects);
 u8 has_ability_effect(u8 bank, u8 mold_breaker);

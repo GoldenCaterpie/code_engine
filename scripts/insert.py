@@ -221,8 +221,6 @@ with open(ROM_NAME, 'rb+') as rom:
 					fstr = ('{:' + str(width) + '} {:08X}')
 					offset_file.write(fstr.format(key + ':', table[key] + 0x08000000) + '\n')
 		offset_file.close()
-		out = subprocess.check_output(['armips','pc.ips'])
-		print(out.decode())
 
 
 
