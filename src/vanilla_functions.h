@@ -247,20 +247,27 @@ void __attribute__((long_call)) bb34_battle_animation(u8 buffID, u8 animID, u16 
 //functions rewritten in ASM to get rid of long calls
 u32 read_word(const void*);
 u16 rng(void);
+u32 random_value(u32 limit);
 
-inline void LZ77UnCompVram(const void* src, void* dst){
-    __asm("swi 0x12"::"r"(src), "r"(dst):);
-}
-inline void LZ77UnCompWram(const void* src, void* dst){
-    __asm("swi 0x11"::"r"(src), "r"(dst):);
-}
-inline void CpuSet(void* src, void* dst, u32 mode){
-    __asm("swi 0xB"::"r"(src), "r"(dst), "r"(mode):);
-}
+void LZ77UnCompVram(const void* src, void* dst);
+void LZ77UnCompWram(const void* src, void* dst);
+void CpuSet(void* src, void* dst, u32 mode);
+
+
+ void LZ77UnCompVram(const void* src, void* dst);
+ void LZ77UnCompWram(const void* src, void* dst);
+ void CpuSet(void* src, void* dst, u32 mode);
+
 u16 get_attributes(const struct pokemon* poke_address, u8 request, void* dst);
 void set_attributes(const struct pokemon* poke_address, u8 request, void* new_value);
 void set_callback2(void* ptr);
 u32 __umodsi3(u32, u32);
+
+
+inline bool percent_chance(u8 percent)
+{
+    return random_value(100) < percent;
+}
 
 #ifdef __cplusplus
 }
