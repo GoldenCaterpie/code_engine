@@ -1,7 +1,6 @@
-#include "defines.h"
-
 #include "learnset.h"
 #include "static_references.h"
+
 
 const struct learnset EMPTYSLOT_MOVESET[] = {{MOVE_POUND, 0x01}, {MOVE_BLANK, END}};
 const struct learnset BULBASAUR_MOVESET[] = {{MOVE_TACKLE, 0x01}, {MOVE_GROWL, 0x03}, {MOVE_LEECH_SEED, 0x07}, {MOVE_VINE_WHIP, 0x09}, {MOVE_POISON_POWDER, 0x0D}, {MOVE_SLEEP_POWDER, 0x0D}, {MOVE_TAKE_DOWN, 0x0F}, {MOVE_RAZOR_LEAF, 0x13}, {MOVE_SWEET_SCENT, 0x15}, {MOVE_GROWTH, 0x19}, {MOVE_DOUBLEEDGE, 0x1B}, {MOVE_WORRY_SEED, 0x1F}, {MOVE_SYNTHESIS, 0x21}, {MOVE_SEED_BOMB, 0x25}, {MOVE_BLANK, END}};
@@ -740,7 +739,7 @@ const struct learnset VOLCANION_MOVESET[] = {{MOVE_STEAM_ERUPTION, 0x01}, {MOVE_
 const struct learnset MEOWSTICFEMALE_MOVESET[] = {{MOVE_STORED_POWER, 0x01}, {MOVE_ME_FIRST, 0x01}, {MOVE_MAGICAL_LEAF, 0x01}, {MOVE_SCRATCH, 0x01}, {MOVE_LEER, 0x01}, {MOVE_COVET, 0x01}, {MOVE_CONFUSION, 0x01}, {MOVE_COVET, 0x05}, {MOVE_CONFUSION, 0x09}, {MOVE_LIGHT_SCREEN, 0x0D}, {MOVE_PSYBEAM, 0x11}, {MOVE_FAKE_OUT, 0x13}, {MOVE_DISARMING_VOICE, 0x16}, {MOVE_PSYSHOCK, 0x19}, {MOVE_CHARGE_BEAM, 0x1C}, {MOVE_SHADOW_BALL, 0x1F}, {MOVE_EXTRASENSORY, 0x23}, {MOVE_PSYCHIC, 0x28}, {MOVE_ROLE_PLAY, 0x2B}, {MOVE_SIGNAL_BEAM, 0x2D}, {MOVE_SUCKER_PUNCH, 0x30}, {MOVE_FUTURE_SIGHT, 0x32}, {MOVE_STORED_POWER, 0x35}, {MOVE_BLANK, END}};
 const struct learnset HOOPAUNBOUND_MOVESET[] = {{MOVE_HYPERSPACE_FURY, 0x01}, {MOVE_TRICK, 0x01}, {MOVE_DESTINY_BOND, 0x01}, {MOVE_ALLY_SWITCH, 0x01}, {MOVE_CONFUSION, 0x01}, {MOVE_ASTONISH, 0x06}, {MOVE_MAGIC_COAT, 0x0A}, {MOVE_LIGHT_SCREEN, 0x0F}, {MOVE_PSYBEAM, 0x13}, {MOVE_SKILL_SWAP, 0x19}, {MOVE_POWER_SPLIT, 0x1D}, {MOVE_GUARD_SPLIT, 0x1D}, {MOVE_KNOCK_OFF, 0x2E}, {MOVE_WONDER_ROOM, 0x32}, {MOVE_TRICK_ROOM, 0x32}, {MOVE_DARK_PULSE, 0x37}, {MOVE_PSYCHIC, 0x4B}, {MOVE_HYPERSPACE_FURY, 0x55}, {MOVE_BLANK, END}};
 const struct learnset ETERNAL_FLOWER_MOVESET[] = {{MOVE_TACKLE, 0x01}, {MOVE_VINE_WHIP, 0x01}, {MOVE_FAIRY_WIND, 0x01}, {MOVE_FAIRY_WIND, 0x06}, {MOVE_LUCKY_CHANT, 0x0A}, {MOVE_RAZOR_LEAF, 0x0F}, {MOVE_WISH, 0x14}, {MOVE_MAGICAL_LEAF, 0x19}, {MOVE_GRASSY_TERRAIN, 0x1B}, {MOVE_PETAL_BLIZZARD, 0x21}, {MOVE_AROMATHERAPY, 0x26}, {MOVE_MISTY_TERRAIN, 0x2B}, {MOVE_MOONBLAST, 0x2E}, {MOVE_LIGHT_OF_RUIN, 0x32}, {MOVE_PETAL_DANCE, 0x33}, {MOVE_SOLAR_BEAM, 0x3A}, {MOVE_BLANK, END}};
- // GEN6_LEARNSETS
+// GEN6_LEARNSETS
 
 const struct learnset ROWLET_MOVESET[] = {{MOVE_TACKLE, 0x01}, {MOVE_LEAFAGE, 0x01}, {MOVE_GROWL, 0x04}, {MOVE_PECK, 0x08}, {MOVE_ASTONISH, 0x0B}, {MOVE_RAZOR_LEAF, 0x0E}, {MOVE_OMINOUS_WIND, 0x10}, {MOVE_FORESIGHT, 0x12}, {MOVE_PLUCK, 0x16}, {MOVE_SYNTHESIS, 0x19}, {MOVE_FURY_ATTACK, 0x1D}, {MOVE_SUCKER_PUNCH, 0x20}, {MOVE_LEAF_BLADE, 0x24}, {MOVE_FEATHER_DANCE, 0x27}, {MOVE_BRAVE_BIRD, 0x2B}, {MOVE_NASTY_PLOT, 0x2E}, {MOVE_BLANK, END}};
 const struct learnset DARTRIX_MOVESET[] = {{MOVE_TACKLE, 0x01}, {MOVE_LEAFAGE, 0x01}, {MOVE_GROWL, 0x01}, {MOVE_PECK, 0x01}, {MOVE_GROWL, 0x04}, {MOVE_PECK, 0x08}, {MOVE_ASTONISH, 0x0B}, {MOVE_RAZOR_LEAF, 0x0E}, {MOVE_OMINOUS_WIND, 0x10}, {MOVE_FORESIGHT, 0x13}, {MOVE_PLUCK, 0x18}, {MOVE_SYNTHESIS, 0x1C}, {MOVE_FURY_ATTACK, 0x21}, {MOVE_SUCKER_PUNCH, 0x25}, {MOVE_LEAF_BLADE, 0x2A}, {MOVE_FEATHER_DANCE, 0x2E}, {MOVE_BRAVE_BIRD, 0x33}, {MOVE_NASTY_PLOT, 0x37}, {MOVE_BLANK, END}};
@@ -853,7 +852,7 @@ const struct learnset STAKATAKA_MOVESET[] = {{MOVE_PROTECT, 0x01}, {MOVE_TACKLE,
 const struct learnset BLACEPHALON_MOVESET[] = {{MOVE_EMBER, 0x01}, {MOVE_ASTONISH, 0x01}, {MOVE_MAGIC_COAT, 0x07}, {MOVE_STORED_POWER, 0x0D}, {MOVE_FLAME_BURST, 0x11}, {MOVE_NIGHT_SHADE, 0x17}, {MOVE_LIGHT_SCREEN, 0x1D}, {MOVE_CALM_MIND, 0x1F}, {MOVE_FIRE_BLAST, 0x25}, {MOVE_SHADOW_BALL, 0x29}, {MOVE_TRICK, 0x2F}, {MOVE_MIND_BLOWN, 0x3B}, {MOVE_BLANK, END}};
 const struct learnset ZERAORA_MOVESET[] = {{MOVE_SCRATCH, 0x01}, {MOVE_SPARK, 0x01}, {MOVE_HONE_CLAWS, 0x05}, {MOVE_QUICK_ATTACK, 0x08}, {MOVE_FURY_SWIPES, 0x0C}, {MOVE_VOLT_SWITCH, 0x0F}, {MOVE_SNARL, 0x13}, {MOVE_FAKE_OUT, 0x16}, {MOVE_CHARGE, 0x1A}, {MOVE_THUNDER_PUNCH, 0x1D}, {MOVE_SLASH, 0x21}, {MOVE_WILD_CHARGE, 0x24}, {MOVE_QUICK_GUARD, 0x28}, {MOVE_PLASMA_FISTS, 0x2B}, {MOVE_CLOSE_COMBAT, 0x2F}, {MOVE_DISCHARGE, 0x32}, {MOVE_BLANK, END}};
 
- // GEN 7 learnsets
+// GEN 7 learnsets
 
 //new learnsets
 const struct learnset SHADOW_LUGIA_MOVESET[] = {{MOVE_WHIRLWIND, 0x01}, {MOVE_WEATHER_BALL, 0x01}, {MOVE_GUST, 0x09}, {MOVE_DRAGON_RUSH, 0x0F}, {MOVE_EXTRASENSORY, 0x17}, {MOVE_RAIN_DANCE, 0x1D}, {MOVE_HYDRO_PUMP, 0x25}, {MOVE_AEROBLAST, 0x2B}, {MOVE_PUNISHMENT, 0x32}, {MOVE_ANCIENT_POWER, 0x39}, {MOVE_SAFEGUARD, 0x41}, {MOVE_LIGHT_OF_RUIN, 0x47}, {MOVE_DOOM_DESIRE, 0x4F}, {MOVE_NIGHT_DAZE, 0x55}, {MOVE_NASTY_PLOT, 0x5D}, {MOVE_HURRICANE, 0x63}, {MOVE_BLANK, END}};
@@ -956,3 +955,128 @@ const struct learnset* learnset_table[ALL_POKES] = {
         GASTLY_MOVESET, //0497
         [0x498 ... ALL_POKES - 1] = EMPTYSLOT_MOVESET
 };
+
+const struct learnset* get_learset_table(struct pokemon* poke){
+	return learnset_table[poke->spieces];
+}
+
+
+void fill_with_default_moves(struct pokemon* poke)
+{
+    u8 level = get_lvl_from_exp(poke);
+    const struct learnset* const poke_moveset = get_learset_table(poke);
+    for (u8 i = 0; poke_moveset[i].move != MOVE_BLANK && poke_moveset[i].level != 0xFF; i++)
+    {
+        if (poke_moveset[i].level <= level)
+        {
+            if (teach_move_in_available_slot(poke, poke_moveset[i].move) == 0xFFFF) //there's no room for this move
+                new_move_for_the_first(poke, poke_moveset[i].move);
+        }
+    }
+}
+
+u16 teach_move_evolving(struct pokemon* poke)
+{
+	const struct learnset* const poke_moveset = get_learset_table(poke);
+	if (poke->padding_maybe >> 7 & 1) {
+		poke->padding_maybe ^= 128;
+		for (slot_in_learnset_table = 0; ; slot_in_learnset_table++)
+		{
+			if (poke_moveset[slot_in_learnset_table].move == MOVE_BLANK || poke_moveset[slot_in_learnset_table].level == 0xFF)
+				return 0;
+			else if (poke_moveset[slot_in_learnset_table].level == LEVEL_EVO)
+				break;
+		}
+	}
+	if (poke_moveset[slot_in_learnset_table].level != LEVEL_EVO)
+		return 0;
+	move_to_learn = poke_moveset[slot_in_learnset_table].move;
+	slot_in_learnset_table++;
+	return teach_move_in_available_slot(poke, move_to_learn);
+}
+
+u16 teach_move_player(struct pokemon* poke, u8 slot)
+{
+	const struct learnset* const poke_moveset = get_learset_table(poke);
+	u8 level = get_attributes(poke, ATTR_LEVEL, 0);
+	if (slot != 0)
+    {
+        for (slot_in_learnset_table = 0; ; slot_in_learnset_table++)
+        {
+            if (poke_moveset[slot_in_learnset_table].move == MOVE_BLANK || poke_moveset[slot_in_learnset_table].level == 0xFF)
+                goto TRY_MOVE_EVOLVING;
+            else if (poke_moveset[slot_in_learnset_table].level == level)
+                break;
+        }
+    }
+    TRY_MOVE_EVOLVING:
+    if (poke_moveset[slot_in_learnset_table].level != level)
+        return teach_move_evolving(poke);
+    move_to_learn = poke_moveset[slot_in_learnset_table].move;
+    slot_in_learnset_table++;
+    return teach_move_in_available_slot(poke, move_to_learn);
+}
+
+bool find_move_in_table2(u16 move, u16 *table_ptr, u8 table_length)
+{
+    for (u8 i = 0; i < table_length; i++) {
+        if (table_ptr[i] == move) { return true; }
+    }
+    return false;
+}
+
+#define MAX_RELEARNABLE 24
+
+u8 relearnable_moves(struct pokemon* poke, u16 moves_table[])
+{
+    u8 number_of_moves = 0;
+    /*u16 known_moves[4];
+    for (u8 j = 0; j < 4; j++)
+    {
+        known_moves[j] = get_attributes(poke, ATTR_ATTACK_1 + j, 0);
+    }*/
+	u16* known_moves = poke->moves;
+	const struct learnset* const poke_moveset = get_learset_table(poke);
+	u8 level = get_attributes(poke, ATTR_LEVEL, 0);
+	for (u8 i = 0; poke_moveset[i].move != MOVE_BLANK && poke_moveset[i].level != 0xFF; i++)
+    {
+        if (poke_moveset[i].level <= level)
+        {
+            u16 known_move = poke_moveset[i].move;
+            if (known_move != known_moves[0] && known_move != known_moves[1] && known_move != known_moves[2] && known_move != known_moves[3] && number_of_moves < MAX_RELEARNABLE)
+            {
+				if (!moves_table) {
+					number_of_moves++;
+					break;
+				}
+                else if (!find_move_in_table2(known_move, moves_table, number_of_moves)) {
+                    moves_table[number_of_moves] = known_move;
+					number_of_moves++;
+				}
+            }
+        }
+    }
+    return number_of_moves;
+}
+
+u8 get_relearnable_moves(struct pokemon* poke, u16 moves_table[])
+{
+    return relearnable_moves(poke, &moves_table[0]);
+}
+
+u8 get_number_of_relearnable_moves(struct pokemon* poke)
+{
+    return relearnable_moves(poke, 0);
+}
+
+u8 learnsanydamagingmove(u16 poke)
+{
+    const struct learnset* const poke_moveset = learnset_table[poke];
+    for (u8 i = 0; poke_moveset[i].move != MOVE_BLANK && poke_moveset[i].level != 0xFF; i++)
+    {
+        if (move_table[poke_moveset[i].move].base_power)
+            return 1;
+    }
+    return 0;
+}
+

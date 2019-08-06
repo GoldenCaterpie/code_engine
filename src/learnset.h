@@ -1,7 +1,7 @@
 #ifndef ENGINE7_LEARNSETS_H
 #define ENGINE7_LEARNSETS_H
 
-#include "config.h"
+#include "defines.h"
 
 #define MOVE_BLANK 0x0000
 #define END 0xFF
@@ -15,7 +15,7 @@ struct learnset{
 };
 #pragma pack(pop)
 
-extern const struct learnset* learnset_table[ALL_POKES];
+const struct learnset* learnset_table[ALL_POKES];
 
 
 #endif //ENGINE7_LEARNSETS_H
