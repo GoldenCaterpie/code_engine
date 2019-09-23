@@ -64,6 +64,25 @@ def symbols(subtract=0):
 				ret[parts[2]] = offset - subtract
 				
 		return ret
+
+def get_data_section():
+	# Dump sections
+	out = subprocess.check_output([OBJDUMP, '-x', '../build/src_battle_string.cpp.o'])
+	print(out.decode())
+	lines = out.decode().split('\n')
+
+	# Find text section
+	def gDic(x):
+		return {
+			"offset":x[0],
+			"size":x[4],
+			"name":x[5]
+		}
+
+	text =  map(lambda x:x.split(), lines)
+	#text = filter(lambda x:len(x) > 3 and x[3] == 'string_data', text)
+	text = map(lambda x:x,text)
+	return list(text)
 					
 def hook(rom, space, hook_at, register=0):
 		# Align 2
@@ -124,102 +143,104 @@ def bytereplace(rom, offset, data):
 				intbyte=int(words[i],16)
 				rom.write(bytes(intbyte.to_bytes(1, 'big')))
 				ar += 1
-		
-shutil.copyfile("BPEE0.gba", ROM_NAME)
-with open(ROM_NAME, 'rb+') as rom:
-		print("Inserting code.")
-		table = symbols(get_text_section())
-		rom.seek(OFFSET_TO_PUT)
-		with open('build/output.bin', 'rb') as binary:
-				rom.write(binary.read())
-				binary.close()
-		
-		# Adjust symbol table
-		for entry in table:
-				table[entry] += OFFSET_TO_PUT
 
-		# Read hooks from a file
-		with open('hooks', 'r') as hooklist:
-				for line in hooklist:
-						if line.strip().startswith('#'): continue
-						
-						symbol, address, register = line.split()
-						offset = int(address, 16) - 0x08000000
-						try:
-								code = table[symbol]
-						except KeyError:
-								print('Symbol missing:', symbol)
-								continue
+def main():
+	shutil.copyfile("BPEE0.gba", ROM_NAME)
+	with open(ROM_NAME, 'rb+') as rom:
+			print("Inserting code.")
+			table = symbols(get_text_section())
+			rom.seek(OFFSET_TO_PUT)
+			with open('build/output.bin', 'rb') as binary:
+					rom.write(binary.read())
+					binary.close()
 
-						hook(rom, code, offset, int(register))
+			# Adjust symbol table
+			for entry in table:
+					table[entry] += OFFSET_TO_PUT
 
-		# Read repoints from a file 
-		with open('repoints', 'r') as repointlist:
-				for line in repointlist:
-						if line.strip().startswith('#'): continue
-						if len(line.split()) is 2:
-								symbol, address = line.split()
-								offset = int(address, 16) - 0x08000000
-								try:
-										code = table[symbol]
-								except KeyError:
-										print('Symbol missing:', symbol)
-										continue
+			# Read hooks from a file
+			with open('hooks', 'r') as hooklist:
+					for line in hooklist:
+							if line.strip().startswith('#'): continue
 
-								repoint(rom, code, offset)
-						if len(line.split()) is 3:
-								symbol, address, slide = line.split()
-								offset = int(address, 16) - 0x08000000
-								try:
-										code = table[symbol]
-								except KeyError:
-										print('Symbol missing:', symbol)
-										continue
-								repoint(rom, code, offset, int(slide))						
+							symbol, address, register = line.split()
+							offset = int(address, 16) - 0x08000000
+							try:
+									code = table[symbol]
+							except KeyError:
+									print('Symbol missing:', symbol)
+									continue
 
-		# Read routine repoints from a file 
-		with open('routinepointers', 'r') as pointerlist:
-				for line in pointerlist:
-						if line.strip().startswith('#'): continue
-						
-						symbol, address = line.split()
-						offset = int(address, 16) - 0x08000000
-						try:
-								code = table[symbol]
-						except KeyError:
-								print('Symbol missing:', symbol)
-								continue
+							hook(rom, code, offset, int(register))
 
-						repoint(rom, code, offset, 1)
+			# Read repoints from a file
+			with open('repoints', 'r') as repointlist:
+					for line in repointlist:
+							if line.strip().startswith('#'): continue
+							if len(line.split()) is 2:
+									symbol, address = line.split()
+									offset = int(address, 16) - 0x08000000
+									try:
+											code = table[symbol]
+									except KeyError:
+											print('Symbol missing:', symbol)
+											continue
 
-		# Read routine rewrite wrapper from a file
-		with open('functionrewrites', 'r') as frwlist:
-				for line in frwlist:
-						if line.strip().startswith('#'): continue
-						
-						symbol, address, nparam, isreturning = line.split()
-						offset = int(address, 16) - 0x08000000
-						try:
-								code = table[symbol]
-						except KeyError:
-								print('Symbol missing:', symbol)
-								continue
+									repoint(rom, code, offset)
+							if len(line.split()) is 3:
+									symbol, address, slide = line.split()
+									offset = int(address, 16) - 0x08000000
+									try:
+											code = table[symbol]
+									except KeyError:
+											print('Symbol missing:', symbol)
+											continue
+									repoint(rom, code, offset, int(slide))
 
-						funcwrap(rom, code, offset, int(nparam), int(isreturning))
+			# Read routine repoints from a file
+			with open('routinepointers', 'r') as pointerlist:
+					for line in pointerlist:
+							if line.strip().startswith('#'): continue
 
-		# Insert byte changes
-		with open('bytereplacement', 'r',encoding='utf-8') as replacelist:
-				for line in replacelist:
-						if line.strip().startswith('#'): continue
-						offset = int(line[:8],16) - 0x08000000
-						bytereplace(rom, offset, line[9:])
-						
-		width = max(map(len, table.keys())) + 1
-		offset_file = open("offsets.ini", 'w')
-		for key in sorted(table.keys()):
-					fstr = ('{:' + str(width) + '} {:08X}')
-					offset_file.write(fstr.format(key + ':', table[key] + 0x08000000) + '\n')
-		offset_file.close()
+							symbol, address = line.split()
+							offset = int(address, 16) - 0x08000000
+							try:
+									code = table[symbol]
+							except KeyError:
+									print('Symbol missing:', symbol)
+									continue
 
+							repoint(rom, code, offset, 1)
 
+			# Read routine rewrite wrapper from a file
+			with open('functionrewrites', 'r') as frwlist:
+					for line in frwlist:
+							if line.strip().startswith('#'): continue
 
+							symbol, address, nparam, isreturning = line.split()
+							offset = int(address, 16) - 0x08000000
+							try:
+									code = table[symbol]
+							except KeyError:
+									print('Symbol missing:', symbol)
+									continue
+
+							funcwrap(rom, code, offset, int(nparam), int(isreturning))
+
+			# Insert byte changes
+			with open('bytereplacement', 'r',encoding='utf-8') as replacelist:
+					for line in replacelist:
+							if line.strip().startswith('#'): continue
+							offset = int(line[:8],16) - 0x08000000
+							bytereplace(rom, offset, line[9:])
+
+			width = max(map(len, table.keys())) + 1
+			offset_file = open("offsets.ini", 'w')
+			for key in sorted(table.keys()):
+						fstr = ('{:' + str(width) + '} {:08X}')
+						offset_file.write(fstr.format(key + ':', table[key] + 0x08000000) + '\n')
+			offset_file.close()
+
+if __name__ == '__main__':
+	for i in get_data_section():
+		print(i)

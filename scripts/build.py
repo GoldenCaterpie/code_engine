@@ -34,7 +34,7 @@ SRC = './src'
 BUILD = './build'
 ASFLAGS = [AS, '-mthumb', '-I', SRC]
 LDFLAGS = ['BPEE.ld', '-T', 'linker.ld']
-CFLAGS = [CC,'-mthumb', '-mno-thumb-interwork', '-mcpu=arm7tdmi', '-mtune=arm7tdmi',
+CFLAGS = [CC,'-mthumb', '-mno-thumb-interwork','-mcpu=arm7tdmi', '-mtune=arm7tdmi',
           '-mno-long-calls', '-march=armv4t', '-Wall','-Wextra', '-Os', '-fira-loop-pressure', '-fipa-pta']
 
 CPPFLAGS = CFLAGS + ['-fno-exceptions','-fno-unwind-tables','-fno-asynchronous-unwind-tables','-std=c++11']
@@ -47,15 +47,13 @@ def run_command(cmd):
         sys.exit(1)
 
 def file_modifiled(in_file,out_file):
-    #if os.path.exists(out_file):
-    #    return os.path.getmtime(in_file) > os.path.getmtime(out_file)
+    if os.path.exists(out_file):
+        return os.path.getmtime(in_file) > os.path.getmtime(out_file)
     return True
 
 def make_output_file(filename):
     """Return hash of filename to use as object filename"""
-    m = hashlib.md5()
-    m.update(filename.encode())
-    return os.path.join(BUILD, m.hexdigest() + '.o')
+    return os.path.join(BUILD, filename.replace("\\","_") + '.o')
 
 def process(in_file,cmd,msg):
     out_file = make_output_file(in_file)

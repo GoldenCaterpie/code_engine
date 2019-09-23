@@ -4,6 +4,5 @@
 *.sav
 *.sgm
 *.py
-build/
+/build/
 offsets.ini
-scripts/
