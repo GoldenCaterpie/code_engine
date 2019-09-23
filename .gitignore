@@ -3,6 +3,5 @@
 *.gba
 *.sav
 *.sgm
-*.py
 /build/
 offsets.ini

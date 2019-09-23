@@ -26,7 +26,7 @@ def gfd():
             fd[line[1]] = line[0]
 
 def readstrings():
-    with open("scripts/strings.txt", encoding="utf-8") as file:
+    with open("scripts/strings.json", encoding="utf-8") as file:
         return eval(file.read())
 
 def gfile(string):
@@ -66,5 +66,5 @@ if len(item) > 0:
         gcodetable()
         gfd()
         for k,v in item:
-            strs = "const u8 " + k + "[] = " + gfile(v)
+            strs = "const unsigned char " + k + "[] = " + gfile(v)
             print(strs, file = file)

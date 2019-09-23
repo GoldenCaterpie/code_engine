@@ -97,6 +97,7 @@ def run_glob(globstr, fn):
 
 
 def main():
+    os.system("python scripts/process_string.py")
     globs = [('**/*.s', process_assembly), ('**/*.cpp',process_cpp), ('**/*.c', process_c)]
     # Create output directory
     try:
@@ -110,6 +111,7 @@ def main():
     # Link and extract raw binary
     linked = link(itertools.chain.from_iterable(objects))
     objcopy(linked)
+    os.remove("src/string_file.c")
 
 
 if __name__ == '__main__':
